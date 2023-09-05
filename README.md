@@ -3,9 +3,12 @@
 Team:
 
 * Person 1 - Which microservice?
-* Person 2 - Which microservice?
+* Bira - Service microservice?
 
 ## Design
+Back-end: Django with Python
+Front-end: React.js with CSS
+Testing: Docker
 
 ## Service microservice
 
