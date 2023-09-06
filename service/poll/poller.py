@@ -13,18 +13,6 @@ django.setup()
 from service_rest.models import AutomobileVO
 
 
-# def get_automobile():
-#     response = requests.get("http://project-beta-inventory-api-1:8000/api/automobiles/")
-#     content = json.loads(response.content)
-#     print(content)
-#     for auto in content["autos"]:
-#         AutomobileVO.objects.update_or_create(
-#             vin=auto["vin"],
-#             defaults={
-#                 "sold": auto["sold"]},
-#         )
-
-
 def poll():
     while True:
         print('Service poller polling for data')
@@ -33,10 +21,14 @@ def poll():
             response = requests.get(url)
             content = json.loads(response.content)
             print(content)
-            for auto in content["autos"]:
+
+            for auto in content['autos']:
                 AutomobileVO.objects.update_or_create(
-                        vin=auto["vin"],
-                        sold=auto["sold"],
+                    vin=auto['vin'],
+                    defaults={
+                        'sold': auto['sold'],
+                        'import_href': auto['href'],
+                    }
                 )
         except Exception as e:
             print(e, file=sys.stderr)

@@ -24,6 +24,7 @@ class Appointment(models.Model):
     customer = models.CharField(max_length=100)
     date_time = models.DateTimeField(null=True)
     reason = models.CharField(max_length=200)
+    vip = models.BooleanField(blank=True, default=False, null=True)
     status = models.CharField(max_length=20, default="pending")
     technician = models.ForeignKey(
         Technician,
