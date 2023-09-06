@@ -3,7 +3,7 @@
 Team:
 
 * Person 1 - Which microservice?
-* Bira - Service microservice?
+* Bira - Service microservice
 
 ## Design
 Back-end: Django with Python
