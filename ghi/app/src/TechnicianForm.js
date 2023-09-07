@@ -42,7 +42,9 @@ function TechnicianForm() {
     <div className="row">
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-            <h1>Create a technician</h1>
+            <div className="text-center">
+                <h2>Create Technician</h2>
+            </div>
             <form onSubmit={handleSubmit} id="create-technician-form">
             <div className="form-floating mb-3">
                 <input
@@ -74,14 +76,14 @@ function TechnicianForm() {
                 <input
                 value={formData.employee_id}
                 onChange={handleChange}
-                placeholder="Employee ID" // Updated placeholder
+                placeholder="Employee ID"
                 required
-                type="text" // Change to text input since employee_id may not be a number
-                name="employee_id" // Update the name here
-                id="employee_id" // Update the id here
+                type="text"
+                name="employee_id"
+                id="employee_id"
                 className="form-control"
                 />
-              <label htmlFor="employee_id">Employee ID</label> {/* Updated label */}
+                <label htmlFor="employee_id">Employee ID</label>
             </div>
             <button className="btn btn-primary">Create</button>
             </form>

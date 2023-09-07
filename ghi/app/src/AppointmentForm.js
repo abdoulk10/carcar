@@ -58,7 +58,9 @@ function AppointmentForm() {
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-          <h1>Enter a service appointment</h1>
+          <div className="text-center">
+          <h2>Enter a service appointment</h2>
+          </div>
           <form onSubmit={handleSubmit} id="create-appointment-form">
             <div className="form-floating mb-3">
               <input
@@ -125,7 +127,7 @@ function AppointmentForm() {
                 {technicians.map((technician) => {
                   return (
                     <option key={technician.id} value={technician.id}>
-                      {technician.first_name}
+                      {technician.first_name} {technician.last_name}
                     </option>
                   );
                 })}
