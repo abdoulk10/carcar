@@ -5,6 +5,7 @@ import TechnicianForm from './TechnicianForm';
 import TechnicianList from './TechnicianList';
 import AppointmentForm from './AppointmentForm.js';
 import ListAppointments from './AppointmentList';
+import ServicetHistory from './ServicetHistory';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           <Route path="appointments">
             <Route index element={<ListAppointments />} />
             <Route path="new" element={<AppointmentForm />} />
-            {/* <Route path="history" element={<AppointmentsHistory />} /> */}
+            <Route path="history" element={<ServicetHistory />} />
           </Route>
         </Routes>
 
