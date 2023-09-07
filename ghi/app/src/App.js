@@ -9,6 +9,7 @@ import ServicetHistory from './ServicetHistory';
 import ManufacturerList from './ManufacturerList';
 import ManufacturerForm from './ManufacturerForm';
 import ModelList from './ModelList';
+import ModelForm from './ModelForm';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
 
           <Route path="models">
             <Route index element={<ModelList />} />
+            <Route path="new" element={<ModelForm />} />
           </Route>
         </Routes>
 

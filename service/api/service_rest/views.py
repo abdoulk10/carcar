@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from .encoders import TechnicianEncoder, AppointmentListEncoder, AppointmentDetailEncoder, AutomobileVOEncoder
 from .models import Technician, Appointment, AutomobileVO
-from django.http import HttpResponseBadRequest
 
 
 @require_http_methods(["GET", "POST"])
