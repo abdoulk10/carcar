@@ -8,6 +8,7 @@ import ListAppointments from './AppointmentList';
 import ServicetHistory from './ServicetHistory';
 import ManufacturerList from './ManufacturerList';
 import ManufacturerForm from './ManufacturerForm';
+import ModelList from './ModelList';
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
           <Route path="manufacturers">
             <Route index element={<ManufacturerList />} />
             <Route path="new" element={<ManufacturerForm />} />
+          </Route>
+
+          <Route path="models">
+            <Route index element={<ModelList />} />
           </Route>
         </Routes>
 
