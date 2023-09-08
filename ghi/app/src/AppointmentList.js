@@ -70,7 +70,7 @@ function ListAppointments() {
     return (
         <div className='container'>
             <div className="text-center">
-                <h2>Upcoming Appointments</h2>
+                <h2>Service Appointments</h2>
             </div>
             <table className='table table-striped'>
                 <thead>

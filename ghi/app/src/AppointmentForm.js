@@ -59,7 +59,7 @@ function AppointmentForm() {
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
           <div className="text-center">
-          <h2>Enter a service appointment</h2>
+          <h2>Create a Service Appointment</h2>
           </div>
           <form onSubmit={handleSubmit} id="create-appointment-form">
             <div className="form-floating mb-3">

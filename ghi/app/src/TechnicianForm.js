@@ -43,7 +43,7 @@ function TechnicianForm() {
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
             <div className="text-center">
-                <h2>Create Technician</h2>
+                <h2>Add a Technician</h2>
             </div>
             <form onSubmit={handleSubmit} id="create-technician-form">
             <div className="form-floating mb-3">
