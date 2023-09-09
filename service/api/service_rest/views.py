@@ -68,7 +68,6 @@ def api_detail_technician(request, id):
 def api_list_appointments(request, vin=False):
     if request.method == "GET":
         appointments = Appointment.objects.all()
-        print(AutomobileVO.objects.all())
         return JsonResponse(
             {"appointments": appointments},
             encoder=AppointmentListEncoder,
