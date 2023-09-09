@@ -1,7 +1,7 @@
 import json
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
-from .encoders import TechnicianEncoder, AppointmentListEncoder, AppointmentDetailEncoder, AutomobileVOEncoder
+from .encoders import TechnicianEncoder, AppointmentListEncoder, AppointmentDetailEncoder
 from .models import Technician, Appointment, AutomobileVO
 
 
@@ -53,9 +53,15 @@ def api_detail_technician(request, id):
             if count > 0:
                 return JsonResponse({"delete": True})
             else:
-                return JsonResponse({"message": "Technician does not exist"}, status=404)
+                return JsonResponse(
+                    {"message": "Technician does not exist"},
+                    status=404
+                    )
         except Technician.DoesNotExist:
-            return JsonResponse({"message": "Technician does not exist"}, status=404)
+            return JsonResponse(
+                {"message": "Technician does not exist"},
+                status=404
+                )
 
 
 @require_http_methods(["GET", "POST"])
@@ -81,15 +87,11 @@ def api_list_appointments(request, vin=False):
             )
         try:
             vin = content["vin"]
-            print(vin)
             vip = AutomobileVO.objects.get(vin=vin)
-            print(vip.vin)
             if vip:
-                print("This is running")
                 content["vip"] = True
                 appointment = Appointment.objects.create(**content)
         except AutomobileVO.DoesNotExist:
-            print("AutomobileVO does not exist")
             appointment = Appointment.objects.create(**content)
         return JsonResponse(
             appointment,
@@ -109,15 +111,24 @@ def api_detail_appointment(request, id):
                 safe=False
             )
         except Appointment.DoesNotExist:
-            response = JsonResponse({"message": "Appointment does not exists"})
+            response = JsonResponse({"message": "Appointment does not exist"})
             response.status_code = 400
             return response
     elif request.method == "DELETE":
         try:
             count, _ = Appointment.objects.filter(id=id).delete()
-            return JsonResponse({"delete": count > 0})
+            if count > 0:
+                return JsonResponse({"message": "Appointment deleted"})
+            else:
+                return JsonResponse(
+                    {"message": "Appointment does not exist"},
+                    status=404
+                    )
         except Appointment.DoesNotExist:
-            return JsonResponse({"message": "Appointment does not exist"})
+            return JsonResponse(
+                {"message": "Appointment does not exist"},
+                status=404
+            )
     else:
         content = json.loads(request.body)
         Appointment.objects.filter(id=id).update(**content)
@@ -142,7 +153,8 @@ def api_appointment_status_finished(request, id):
         appointment.status = "finished"
         appointment.save()
         return JsonResponse(
-            {"message": "Appointment status updated to 'finished'"},
+            {"message": "Appointment status updated to 'finished'",
+                "status": "finished"},
             status=200
         )
     except Appointment.DoesNotExist:
@@ -159,7 +171,8 @@ def api_appointment_status_canceled(request, id):
         appointment.status = "canceled"
         appointment.save()
         return JsonResponse(
-            {"message": "Appointment status updated to 'canceled'"},
+            {"message": "Appointment status updated to 'canceled'",
+                "status": "canceled"},
             status=200
         )
     except Appointment.DoesNotExist:

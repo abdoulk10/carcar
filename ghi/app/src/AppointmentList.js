@@ -21,6 +21,7 @@ function ListAppointments() {
 
         const fetchConfigs = {
             method: "PUT",
+            
             body: JSON.stringify({ status: "canceled" }),
             headers: {
                 "Content-Type": "application/json"
