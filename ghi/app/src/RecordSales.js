@@ -97,11 +97,17 @@ function RecordSales() {
             onChange={(e) => setSelectedAutomobile(e.target.value)}
           >
             <option value="">Choose an automobile VIN...</option>
-            {automobiles.map((automobile) => (
-              <option key={automobile.vin} value={automobile.vin}>
-                {automobile.vin}
-              </option>
-            ))}
+            {automobiles.map((automobile) => {
+              if (!automobile.sold) {
+                return (
+                  <option key={automobile.vin} value={automobile.vin}>
+                    {automobile.vin}
+                  </option>
+                );
+              }
+              return null;
+            }
+            )}
           </select>
         </div>
         <div>
