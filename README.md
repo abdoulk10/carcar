@@ -5,7 +5,7 @@ Team:
 * Person 1 - Which microservice?
 Abdoul Ba - Automobile Sales
 * Person 2 - Which microservice?
-
+Bira Luiz - Service microservice
 ## Design
 Back-end: Django with Python
 Front-end: React.js with CSS
